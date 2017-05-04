@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>JSMikesAdvGame</title>
+<style type="text/css">
+  body { background-color: grey; color: white; font-family: arial; margin: 0; padding: none; text-align: center; }
+  .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
+  canvas.emscripten { border: 0px none; }
+  #left { position: absolute; right: 80%; top: 50px; }
+  #right { position: absolute; left: 80%; top: 50px; }
+</style>
+</head>
+
+<body>
+
+<div id="left">
+  <input type="button" value="Fullscreen" onclick="Module.requestFullScreen(false, false)">
+</div>
+
+<div id="right">
+  <input type="button" value="Reload" onclick="location.reload(false)">
+</div>
+
+<br><br>JSMikesAdvGame<br>Use Mozilla Firefox or Google Chrome for best results.<br><br><br>
+    
+<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+
+<script type='text/javascript'>
+  var Module = {
+    preRun: [],
+    postRun: [],
+    canvas: (function() {var canvas = document.getElementById('canvas'); return canvas;})()
+  };
+</script>
+
+<script async type="text/javascript" src="MikesAdvGame.js"></script>
+
+</body>
+</html>

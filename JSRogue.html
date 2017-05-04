@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>JSRogue</title>
+<style type="text/css">
+  body { background-color: grey; color: white; font-family: arial; margin: 0; padding: none; text-align: center; }
+  .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
+  canvas.emscripten { border: 0px none; }
+  #left { position: absolute; right: 80%; top: 18px; }
+  #right { position: absolute; left: 80%; top: 18px; }
+
+  #page {display: none;}
+
+  #loading {
+    display: block; position: absolute; top: 0; left: 0; z-index: 100; width: 100vw; height: 100vh;
+    background-color: grey;
+    background-image: url("loading.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+</style>
+</head>
+
+<body>
+
+<script type='text/javascript'>
+function onReady(callback) {
+  var intervalID = window.setInterval(checkReady, 1000);
+
+  function checkReady() {
+    if (document.getElementsByTagName('body')[0] !== undefined) {
+      window.clearInterval(intervalID);
+      callback.call(this);
+    }
+  }
+}
+
+function show(id, value) {
+  document.getElementById(id).style.display = value ? 'block' : 'none';
+}
+
+onReady(function () {
+  show('page', true);
+  show('loading', false);
+});
+</script>
+
+<div id="page">
+
+<div id="left">
+  <input type="button" value="Fullscreen" onclick="Module.requestFullScreen(false, false)">
+</div>
+
+<div id="right">
+  <input type="button" value="Reload" onclick="location.reload(false)">
+</div>
+
+JSRogue<br>Use Mozilla Firefox or Google Chrome for best results.<br>Use Tab in place of Ctrl<br>
+    
+<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+
+<script type='text/javascript'>
+  var Module = {
+    preRun: [],
+    postRun: [],
+    canvas: (function() {var canvas = document.getElementById('canvas'); return canvas;})()
+  };
+</script>
+
+<script async type="text/javascript" src="Rogue.js"></script>
+
+</div>
+
+<div id="loading"></div>
+
+</body>
+</html>
