@@ -6,8 +6,8 @@ retrieved from an old floppy disk.
 
 To play the game you'll need to unzip the following files into a single folder on
 your DOS machine:
-   replacement files.zip    <--- Needed for the help and scoring system
-   old hack.zip             <--- The unmodified file I received
+   missing files.zip    <--- Needed for the help and scoring system
+   old hack.zip         <--- The unmodified file I received
 
 Inside the .exe I found the following message (also stored in saved games):
    Sunday 22-MAR-1987 - Ray Dunn, Montreal.
